@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="user-details-container mt-60 w-100">
+  <div class="container-table">
+    <h1>Registered Users</h1>
+    <table class="table table-hover table-bordered table-responsive-md">
+      <thead class="thead-dark">
+        <tr>
+          <th>User Name</th>
+          <th>Email </th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="getUserDetails.length == 0">
+          <td colspan="4" style="text-align: center;">No Recrod Found in local storage</td>
+        </tr>
+        <tr *ngFor="let item of getUserDetails">
+          <td>{{item?.username}}</td>
+          <td>{{item?.email}}</td>
+          <td>
+            <span class="loop-address" *ngFor="let child of item.state">
+              <span><i>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</i> {{child.city}}</span>
+              <span><i>State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</i> {{child.state}}</span>
+              <span><i>Pincode:</i> {{child.pincode}}</span>
+            </span>
+          </td>
+          <td>
+            <i class="fa fa-remove" (click)="delteUser(item.id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

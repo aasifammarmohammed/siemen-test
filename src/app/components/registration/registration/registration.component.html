@@ -1,0 +1,68 @@
+<div class='center'>
+    <div class='signUp'>
+        <div class='wecome-bg'>
+            <div class='background-img'>
+                <h1>Welcome to Registration</h1>
+            </div>
+        </div>
+        <div class='form-content'>
+            <form [formGroup]="userRegistrationForm" class="user-registration">
+                <div class="sign-in-custom-logo">
+                    <img src="../../../../assets/images/user.png" alt="user icon">
+                </div>
+                <div class='w-100 form-main-container'>
+                    <div class='form-group'>
+                        <label for='username'>User Name</label>
+                        <input type='text' id="username" class="form-input" formControlName="username" />
+                    </div>
+                    <div class='form-group'>
+                        <label for='emailaddress'>Email Address</label>
+                        <input type='email' id="emailaddress" class="form-input" formControlName="email" />
+                        <span class="error"
+                            *ngIf="userRegistrationForm.get('email').errors && userRegistrationForm.get('email').dirty">Please
+                            enter valid email</span>
+                    </div>
+
+                    <div class="addresses" formArrayName="state"> 
+                        <div class="loop-address"
+                            *ngFor="let child of userRegistrationForm.get('state')['controls']; let i=index"
+                            formGroupName="{{i}}">
+                            <h6>Address <span *ngIf="i!=0">{{i+1}}</span> </h6>
+                            <div class="address-scroll">
+                                <div class='form-group'>
+                                    <label for='city'>City</label>
+                                    <input type='text' id="city" class="form-input" formControlName="state" />
+                                </div>
+                                <div class='form-group'>
+                                    <label for='state'>State</label>
+                                    <input type='text' id="state" class="form-input" formControlName="city" />
+                                </div>
+                                <div class='form-group'>
+                                    <label for='pincode'>Pincode</label>
+                                    <input type='number' id="pincode" class="form-input" formControlName="pincode" />
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <div class="add">
+                                    <button class="btn btn-success addAddress" (click)="addAddresses()">
+                                        <i class="fa fa-plus"></i>Address
+                                    </button>
+                                </div>
+                                <div class="remove" *ngIf="i!=0">
+                                    <button class="btn removeAddress" (click)="removeAddresses(i)">
+                                        <i class="fa fa-minus"></i> Address
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='w-100'>
+                    <button class="btn register-btn" (click)="onSubmit()"
+                        [disabled]="!userRegistrationForm.valid">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+@import 'ngx-toastr/toastr';
+
+@font-face {
+    font-family: 'poppinsregular';
+    src: url('../src/assets/fonts/poppins-regular-webfont.woff') format('woff2'),
+         url('../src/assets/fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsbold';
+    src: url('../src/assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
+         url('../src/assets/fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    widtH: 100%;
+    min-height: 100vh;
+    font-family: 'poppinsregular';
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none; 
+  }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+    display: none;
+}
+
+.w-100 {
+    width: 100%;
+    float: left;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+ 
+ .addresses::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+ 
+  .addresses::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+   
+  .addresses::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+  }
